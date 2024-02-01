@@ -1,0 +1,7 @@
+{
+  "name": "portfolioFrontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
