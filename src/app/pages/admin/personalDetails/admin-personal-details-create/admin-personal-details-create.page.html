@@ -1,0 +1,230 @@
+<ion-content [fullscreen]="true" class="">
+  <section class="mt-5 mb-5 pb-5 bg" *ngIf="type != 'view'">
+    <div class="container">
+      <div class="form_inner">
+        <div class="text-center mb-5">
+          <h2>Personal Details Create</h2>
+        </div>
+        <form class="input_form" #service="ngForm" (ngSubmit)="submitService(service)">
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Name</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="name" [(ngModel)]="name" placeholder="Name" required />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Description</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="description" [(ngModel)]="description"
+                placeholder="Description" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Date of Birth</label>
+            <div class="fieldrow">
+              <input class="form_input" type="date"  name="dob" [(ngModel)]="dob"
+                 />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Nationality</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="nationality" [(ngModel)]="nationality"
+                placeholder="Nationality" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Phone</label>
+            <div class="fieldrow">
+              <input class="form_input" type="tel"  name="phone" [(ngModel)]="phone"
+              maxlength="10"
+                        minlength="10" pattern="^[0-9][0-9]*$"
+              onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? null : event.charCode >= 48 && event.charCode <= 57"
+              autocomplete="off" placeholder="Phone" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Gmail</label>
+            <div class="fieldrow">
+              <input class="form_input" type="gmail" name="gmail" [(ngModel)]="gmail"
+              pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+                placeholder="Gmail" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Github</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="github" [(ngModel)]="github"
+                placeholder="Github" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Linkedin</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="linkedin" [(ngModel)]="linkedin"
+                placeholder="Linkedin" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Twitter</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="twitter" [(ngModel)]="twitter"
+                placeholder="Twitter" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Facebook</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="facebook" [(ngModel)]="facebook"
+                placeholder="Facebook" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Instagram</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="instagram" [(ngModel)]="instagram"
+                placeholder="Instagram" />
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Spoken Languages</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="lang" [(ngModel)]="lang"
+                placeholder="Spoken Languages" />
+                <button class="btn btn-primary" type="button" (click)="addLanguages()">Add  Language +</button>
+            </div>
+          </div>
+          <div class="fieldrow at_email">
+            <ul>
+              <li *ngFor="let lan of languageList; let i = index">{{lan}}
+                <ion-icon name="close"  (click)="removeLanguages(i)"></ion-icon>
+              </li>
+            </ul>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Interests</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="intrest" [(ngModel)]="intrest"
+                placeholder="Interests" />
+                <button class="btn btn-primary" type="button" (click)="addInterests()">Add  Interests +</button>
+            </div>
+          </div>
+          <div class="fieldrow at_email">
+            <ul>
+              <li *ngFor="let inList of intrestList; let i = index">{{inList}}
+                <ion-icon name="close" (click)="removeIntrest(i)"></ion-icon>
+              </li>
+            </ul>
+          </div>
+
+          <!-- <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+            <div class="fieldrow">
+              <label class="form_label">Service Image</label>
+              <div class="up_img">
+                <ul>
+                  <li class="up_input">
+                    <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                      (change)="yourImage($event.target)" />
+                    <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                  </li>
+                  <li *ngIf="image">
+                    <img src="{{image.base64Data || image }}" alt="image?.name">
+                    <button class="btn_delete">
+                      <ion-icon name="close" (click)="clearImage()"></ion-icon>
+                    </button>
+
+                  </li>
+                  <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+                </ul>
+              </div>
+            </div>
+          </ion-col> -->
+
+          <div class="form_action d-flex">
+            <button *ngIf="type == 'add'" class="btn btn-success" type="submit" style="margin-left: 27rem;">
+              Create
+            </button>
+            <button *ngIf="type == 'edit'" class="btn btn-primary" type="submit" style="margin-left: 27rem;">
+              update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+  <section  class="mt-5 mb-5 pb-5 container" *ngIf="type == 'view'">
+    <div class="form_inner" >
+      <div class="text-center mb-5">
+        <h2>Service View</h2>
+      </div>
+      <form class="input_form" >
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Name</label>
+          <div class="fieldrow">
+            <input class="form_input" readonly type="text" name="name" [(ngModel)]="name"
+              />
+          </div>
+        </div>
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Description</label>
+          <div class="fieldrow">
+            <input class="form_input" type="text" readonly name="description" [(ngModel)]="description"
+              />
+          </div>
+        </div>
+
+
+        <!-- <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+          <div class="fieldrow">
+            <label class="form_label">Service Image</label>
+            <div class="up_img">
+              <ul>
+                <li class="up_input">
+                  <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                    (change)="yourImage($event.target)" />
+                  <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                </li>
+                <li *ngIf="image">
+                  <img src="{{image}}" alt="">
+                  <button class="btn_delete">
+                  </button>
+                </li>
+                <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+              </ul>
+            </div>
+          </div>
+        </ion-col> -->
+        
+
+
+        <div class="form_action d-flex">
+          <button class="btn btn-warning" [routerLink]="'/admin-blog-list'" type="button" style="margin-left: 27rem;">
+            Back
+          </button>
+        </div>
+      </form>
+    </div> 
+  
+</section> 
+
+
+</ion-content>

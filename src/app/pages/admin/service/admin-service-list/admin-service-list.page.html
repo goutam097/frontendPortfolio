@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>admin-Service-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container mt-5">
+    <div>
+      <button class="btn btn-warning" style="float: right;" (click)="addService('add')">Add+</button>
+    </div>
+    <table>
+      <tr>
+        <th>Sl.No</th>
+        <th>Service Title</th>
+        <th>Service Description</th>
+        <th>Service Image</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let serv of serviceList; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{ serv?.title.slice(0, 30) + (serv?.title.length > 30 ? '...' : '') }}</td>
+        <td>{{ serv?.description.slice(0, 50) + (serv?.description.length > 50 ? '...' : '') }}</td>
+        <td>
+            <img src="{{ serv?.image }}" alt="image.name">
+        </td>
+        <td class="align-middle">
+          <a (click)="view(serv._id)"><ion-icon name="eye-outline" class="fs-4 text-success"></ion-icon></a>
+          <a (click)="edit(serv._id)"><ion-icon name="create-outline" class="ms-3 me-2 fs-4 text-primary"></ion-icon></a>
+          <a (click)="deleteProductlist(serv._id)"><ion-icon name="trash-outline" class="fs-4 text-danger"></ion-icon></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ion-content>

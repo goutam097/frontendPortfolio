@@ -1,0 +1,166 @@
+
+
+<ion-content [fullscreen]="true" class="">
+  <section class="mt-5 mb-5 pb-5 bg" *ngIf="type != 'view' ">
+    <div class="container">
+      <div class="form_inner">
+        <div class="text-center mb-5">
+          <h2>Testimonial Create</h2>
+        </div>
+         <form class="input_form" #testimonial="ngForm" (ngSubmit)="submitTestimonial(testimonial)">
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Title</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="title" [(ngModel)]="title" required
+                #fNameA="ngModel" />
+              <span class="error" *ngIf="fNameA.errors && (fNameA.dirty || fNameA.touched || testimonial.submitted)">This field
+                is
+                required</span>
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Name</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="name" [(ngModel)]="name" required
+                #fNameA="ngModel" />
+              <span class="error" *ngIf="fNameA.errors && (fNameA.dirty || fNameA.touched || testimonial.submitted)">This field
+                is
+                required</span>
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Rating</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="rating" [(ngModel)]="rating" required
+                #fNameA="ngModel" />
+              <span class="error" *ngIf="fNameA.errors && (fNameA.dirty || fNameA.touched || testimonial.submitted)">This field
+                is
+                required</span>
+            </div>
+          </div>
+
+          <div class="fieldrow row_box">
+            <label class="form_label">Description</label>
+            <div class="fieldrow">
+              <input class="form_input" type="text" name="description" [(ngModel)]="description"
+                placeholder="Description" />
+            </div>
+          </div>
+
+          <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+            <div class="fieldrow">
+              <label class="form_label">Image</label>
+              <div class="up_img">
+                <ul>
+                  <li class="up_input">
+                    <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                      (change)="yourImage($event.target)" />
+                    <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                  </li>
+                  <li *ngIf="image">
+                    <img src="{{image.base64Data || image }}" alt="image.name">
+                    <button class="btn_delete">
+                      <ion-icon name="close" (click)="clearImage()"></ion-icon>
+                    </button>
+
+                  </li>
+                  <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+                </ul>
+              </div>
+            </div>
+          </ion-col>
+
+          <div class="form_action d-flex">
+            <button *ngIf="type != 'view' && type != 'edit'" class="btn btn-success" type="submit" style="margin-left: 27rem;">
+              Create
+            </button>
+            <button *ngIf="type == 'edit'" class="btn btn-primary" type="submit" style="margin-left: 27rem;">
+              update
+            </button>
+          </div>
+        </form> 
+      </div>
+    </div>
+
+  </section>
+
+  <section  class="mt-5 mb-5 pb-5 container" *ngIf="type == 'view'">
+    <div class="form_inner" >
+      <div class="text-center mb-5">
+        <h2>Testimonial</h2>
+      </div>
+      <form class="input_form" >
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Title</label>
+          <div class="fieldrow">
+            <input class="form_input" readonly type="text" name="title" [(ngModel)]="title"
+              />
+          </div>
+        </div>
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Name</label>
+          <div class="fieldrow">
+            <input class="form_input" readonly type="text" name="name" [(ngModel)]="name"
+              />
+          </div>
+        </div>
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Rating</label>
+          <div class="fieldrow">
+            <input class="form_input" readonly type="text" name="rating" [(ngModel)]="rating"
+              />
+          </div>
+        </div>
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Description</label>
+          <div class="fieldrow">
+            <input class="form_input" type="text" readonly name="description" [(ngModel)]="description"
+              />
+          </div>
+        </div>
+
+
+        <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+          <div class="fieldrow">
+            <label class="form_label">Profile Image</label>
+            <div class="up_img">
+              <ul>
+                <li class="up_input">
+                  <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                    (change)="yourImage($event.target)" />
+                  <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                </li>
+                <li *ngIf="image">
+                  <img src="{{image}}" alt="">
+                  <button class="btn_delete">
+                  </button>
+                </li>
+                <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+              </ul>
+            </div>
+          </div>
+        </ion-col>
+        
+
+
+        <div class="form_action d-flex">
+          <button class="btn btn-warning" [routerLink]="'/admin-blog-list'" type="button" style="margin-left: 27rem;">
+            Back
+          </button>
+        </div>
+      </form>
+    </div> 
+  
+</section> 
+
+
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>admin-blog-list</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container mt-5">
+    <div>
+      <button class="btn btn-warning" style="float: right;" (click)="addBlog('add')">Add+</button>
+    </div>
+    <table>
+      <tr>
+        <th>Sl.No</th>
+        <th>Blog Title</th>
+        <th>Blog Description</th>
+        <th>Blog Image</th>
+        <th>Action</th>
+      </tr>
+      <tr *ngFor="let c of blogList; let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{ c?.title.slice(0, 30) + (c?.title.length > 30 ? '...' : '') }}</td>
+        <td>{{ c?.description.slice(0, 50) + (c?.description.length > 50 ? '...' : '') }}</td>
+        <td>
+            <img src="{{ c?.image }}" alt="image.name">
+        </td>
+        <td class="align-middle">
+          <a (click)="view(c._id)"><ion-icon name="eye-outline" class="fs-4 text-success"></ion-icon></a>
+          <a (click)="goTodo(c._id)"><ion-icon name="create-outline" class="ms-3 me-2 fs-4 text-primary"></ion-icon></a>
+          <a (click)="deleteProductlist(c._id)"><ion-icon name="trash-outline" class="fs-4 text-danger"></ion-icon></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ion-content>

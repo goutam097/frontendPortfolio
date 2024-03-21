@@ -1,0 +1,209 @@
+<ion-content [fullscreen]="true" class="">
+  <section class="mt-5 mb-5 pb-5 bg" *ngIf="type != 'view' ">
+    <div class="container">
+      <div class="form_inner">
+        <div class="text-center mb-5">
+          <h2>Blog Create</h2>
+        </div>
+        <form class="input_form">
+
+          <div class="card">
+            <label>Experience</label>
+            <div class="fieldrow row_box">
+              <label class="form_label">Title</label>
+              <div class="fieldrow">
+                <input class="form_input" type="text" name="experienceTitle" [(ngModel)]="experienceTitle" required />
+              </div>
+            </div>
+
+            <div class="fieldrow row_box">
+              <label class="form_label">Experience</label>
+              <div class="fieldrow">
+                <input class="form_input" type="text" name="experienceDescription" [(ngModel)]="experienceDescription"
+                  required />
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" type="button" (click)="addExperience()">Add Interests +</button>
+
+          <div class="fieldrow at_email">
+            <ul>
+              <li *ngFor="let inList of experienceList; let i = index">
+                <span>Title: {{inList?.title}}</span> <br>
+                <span>Desc: {{inList?.description}}</span>
+                <ion-icon name="close" (click)="removeExperience(i)"></ion-icon>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <label>Skill</label>
+            <div class="fieldrow row_box">
+              <label class="form_label">Title</label>
+              <div class="fieldrow">
+                <input class="form_input" type="text" name="skillTitle" [(ngModel)]="skillTitle" required />
+              </div>
+            </div>
+
+            <div class="fieldrow row_box">
+              <label class="form_label">Description</label>
+              <div class="fieldrow">
+                <input class="form_input" type="text" name="skillDescription" [(ngModel)]="skillDescription" required />
+              </div>
+            </div>
+
+            <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+              <div class="fieldrow">
+                <label class="form_label">Blog Image</label>
+                <div class="up_img">
+                  <ul>
+                    <li class="up_input">
+                      <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                        (change)="yourImage($event.target)" />
+                      <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                    </li>
+                    <li *ngIf="image">
+                      <img src="{{image.base64Data || image }}" alt="image.name">
+                      <button class="btn_delete">
+                        <ion-icon name="close" (click)="clearImage()"></ion-icon>
+                      </button>
+
+                    </li>
+                    <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+                  </ul>
+                </div>
+              </div>
+            </ion-col>
+
+
+            <button class="btn btn-primary" type="button" (click)="addSkill()">Add Interests +</button>
+
+            <!-- <div class="">
+              <ul>
+                <li *ngFor="let inList of skillList; let i = index">
+                  <span>Title: {{inList?.title}}</span> <br>
+                  <span>Desc: {{inList?.description}}</span> <br>
+                  <ion-icon name="close" (click)="removeExperience(i)" type="button"> close</ion-icon>
+                  <span >Image: <img style="width: 5rem;" src="{{inList?.image?.base64Data || inList?.image}}" alt=""></span>
+                </li>
+              </ul>
+            </div> -->
+            <div class="skill-container">
+              <ul>
+                <li *ngFor="let inList of skillList; let i = index" class="skill-item">
+                  <div>
+                    <span class="title">Title: {{inList?.title}}</span><br>
+                    <span class="description">Desc: {{inList?.description}}</span>
+                  </div>
+                  <span class="skill-image">Image: <img src="{{inList?.image?.base64Data || inList?.image}}" alt=""></span>
+                  <ion-icon class="close-icon" name="close" (click)="removeSkill(i)"></ion-icon>
+                </li>
+              </ul>
+            </div>
+
+           
+          </div>
+
+
+          <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+            <div class="fieldrow">
+              <label class="form_label">About Image</label>
+              <div class="up_img">
+                <ul>
+                  <li class="up_input">
+                    <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                      (change)="yourAboutImage($event.target)" />
+                    <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                  </li>
+                  <li *ngIf="aboutimage">
+                    <img src="{{aboutimage.base64Data || aboutimage }}" alt="image.name">
+                    <button class="btn_delete">
+                      <ion-icon name="close" (click)="clearImage()"></ion-icon>
+                    </button>
+
+                  </li>
+                  <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+                </ul>
+              </div>
+            </div>
+          </ion-col>
+
+          <div class="form_action d-flex">
+            <button *ngIf="type == 'add'" class="btn btn-success" type="button"
+              style="margin-left: 27rem;" (click)="submitAbout()">
+              Create
+            </button>
+            <button *ngIf="type == 'edit'" class="btn btn-primary" type="button" style="margin-left: 27rem;" (click)="submitAbout()">
+              update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!--   <section  class="mt-5 mb-5 pb-5 container" *ngIf="type == 'view'">
+    <div class="form_inner" >
+      <div class="text-center mb-5">
+        <h2>Blog</h2>
+      </div>
+      <form class="input_form" >
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Blog Title</label>
+          <div class="fieldrow">
+            <input class="form_input" readonly type="text" name="blogTitle" [(ngModel)]="blogTitle"
+              />
+          </div>
+        </div>
+
+        <div class="fieldrow row_box">
+          <label class="form_label">Description</label>
+          <div class="fieldrow">
+            <input class="form_input" type="text" readonly name="description" [(ngModel)]="description"
+              />
+          </div>
+        </div>
+
+
+        <ion-col size-lg="12" size-md="12" size-sm="12" size-xs="12">
+          <div class="fieldrow">
+            <label class="form_label">Profile Image</label>
+            <div class="up_img">
+              <ul>
+                <li class="up_input">
+                  <input type="file" required accept="image/jpg,image/jpeg,image/png"
+                    (change)="yourImage($event.target)" />
+                  <ion-icon class="up_button" name="cloud-upload-outline"></ion-icon>
+
+                </li>
+                <li *ngIf="image">
+                  <img src="{{image}}" alt="">
+                  <button class="btn_delete">
+                  </button>
+                </li>
+                <p>(Max image size 2MB, <br> file format jpg, jpeg, png)</p>
+              </ul>
+            </div>
+          </div>
+        </ion-col>
+        
+
+
+        <div class="form_action d-flex">
+          <button class="btn btn-warning" [routerLink]="'/admin-blog-list'" type="button" style="margin-left: 27rem;">
+            Back
+          </button>
+        </div>
+      </form>
+    </div> 
+  
+</section>  -->
+
+
+</ion-content>

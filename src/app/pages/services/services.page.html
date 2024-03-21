@@ -25,18 +25,18 @@
   <section class="section bg-gradient-light-white">
       <div class="container">
           <div class="row">
-              <div class="col-lg-4 col-md-6 mt-4 pt-2">
+              <div class="col-lg-4 col-md-6 mt-4 pt-2" *ngFor="let serv of serviceList">
                   <div class="card rounded shadow border-0">
                       <div class="card-body p-4 m-2">
                           <div class="bg-soft-alt-orange d-flex justify-content-center align-items-center thumb-xl  rounded">
                               <i data-feather="layers" class="align-self-center svg-orange icon-md"></i>  
                           </div>
-                          <h5 class="text-dark fs-22 fw-medium my-4">Awesome Support</h5>
-                          <p class="text-muted pb-4">Some quick example text to build on the card title and make up the bulk of the card's content platform.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
-              <div class="col-lg-4 col-md-6 mt-4 pt-2">
+                          <h5 class="text-dark fs-22 fw-medium my-4">{{serv?.title}}</h5>
+                          <p class="text-muted pb-4">{{serv?.description}}</p>
+                      </div>
+                  </div>
+              </div>
+              <!-- <div class="col-lg-4 col-md-6 mt-4 pt-2">
                   <div class="card rounded shadow  border-0">
                       <div class="card-body p-4 m-2">
                           <div class="bg-soft-alt-info d-flex justify-content-center align-items-center thumb-xl  rounded">
@@ -44,9 +44,9 @@
                           </div>
                           <h5 class="text-dark fs-22 fw-medium my-4">Dynamic Growth</h5>
                           <p class="text-muted pb-4">Credibly brand standards compliant users without extensible services. Anibh euismod tincidunt.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
+                      </div>
+                  </div>
+              </div>
               <div class="col-lg-4 col-md-6 mt-4 pt-2">
                   <div class="card rounded shadow  border-0">
                       <div class="card-body p-4 m-2">
@@ -55,11 +55,11 @@
                           </div>
                           <h5 class="text-dark fs-22 fw-medium my-4">Branding Identity</h5>
                           <p class="text-muted pb-4">Separated they live in Bookmarksgrove right at the coast of the Semantics, and large.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
-          </div><!-- end row -->
-          <div class="row">
+                      </div>
+                  </div>
+              </div> -->
+          </div>
+          <!-- <div class="row">
               <div class="col-lg-4 col-md-6 mt-4 pt-2">
                   <div class="card rounded shadow border-0">
                       <div class="card-body p-4 m-2">
@@ -68,9 +68,9 @@
                           </div>
                           <h5 class="text-dark fs-22 fw-medium my-4">App Development</h5>
                           <p class="text-muted pb-4">Some quick example text to build on the card title and make up the bulk of the card's content platform.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
+                      </div>
+                  </div>
+              </div>
               <div class="col-lg-4 col-md-6 mt-4 pt-2">
                   <div class="card rounded shadow  border-0">
                       <div class="card-body p-4 m-2">
@@ -79,9 +79,9 @@
                           </div>
                           <h5 class="text-dark fs-22 fw-medium my-4">Business Stratagy</h5>
                           <p class="text-muted pb-4">Credibly brand standards compliant users without extensible services. Anibh euismod tincidunt.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
+                      </div>
+                  </div>
+              </div>
               <div class="col-lg-4 col-md-6 mt-4 pt-2">
                   <div class="card rounded shadow  border-0">
                       <div class="card-body p-4 m-2">
@@ -90,11 +90,11 @@
                           </div>
                           <h5 class="text-dark fs-22 fw-medium my-4">Web Design</h5>
                           <p class="text-muted pb-4">Separated they live in Bookmarksgrove right at the coast of the Semantics, and large.</p>
-                      </div><!-- end card-body -->
-                  </div><!-- end card -->
-              </div><!-- end col -->
-          </div><!-- end row -->
-      </div><!-- end container -->
+                      </div>
+                  </div>
+              </div>
+          </div> -->
+      </div>
   </section>
   <!-- end services -->
   
@@ -113,7 +113,7 @@
                   </div>
                   <h2 class="text-dark" style="line-height: 1.5; position: relative;">I Am Available For Freelancer.</h2>
                   <p class="text-muted mb-0">Browse hundreds of job offers and find the bestsuitable position.</p>
-              </div><!--end col--> 
+              </div>
               <div class="col-lg-6 ml-auto">
                   <div class="cta-search">
                       <form class="position-relative">
@@ -121,9 +121,9 @@
                           <button type="submit" class="btn btn-dark">Send Massage</button>
                       </form>
                   </div>
-              </div><!--end col--> 
-          </div><!--end row--> 
-      </div><!--end container--> 
+              </div>
+          </div>
+      </div>
   </section>
 
   <div class="position-relative">

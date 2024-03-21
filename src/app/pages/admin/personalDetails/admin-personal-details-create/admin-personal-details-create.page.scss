@@ -1,0 +1,48 @@
+.at_email {
+    margin: 10px 0;
+    margin-top: 20px;
+
+    ul {
+      padding-inline-start: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      li {
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #edf2f6;
+        color: var(--text-primary);
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 15px;
+        padding-right: 40px;
+        padding-bottom: 7px;
+        border-radius: 50px;
+        overflow: hidden;
+
+        i {
+          font-size: 18px;
+          vertical-align: middle;
+          background-color: #34465d;
+          color: var(--white);
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 30px;
+          text-align: center;
+          line-height: 34px;
+          padding-right: 5px;
+          transition: all 250ms ease-in-out;
+
+          &:hover {
+            background-color: var(--primary);
+          }
+        }
+      }
+    }
+  }

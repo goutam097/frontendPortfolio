@@ -1,83 +1,174 @@
-
-
 <ion-content [fullscreen]="true">
-  <app-header></app-header>
-
-
- <!-- start hero -->
- <section class="hero-one position-relative bg-black" id="about"  style="background-image: url(images/personal/main-bg.png); background-size: cover; background-position: center center;">
-    <div class="container">
-        <div class="row align-items-center justify-content-center py-100">
-            <div class="col-lg-9 text-center py-5 text-center">
-                <h5 class="head-title py-4" aria-label="Blog Detail"></h5>                        
-            </div><!--end col-->                  
-        </div><!--end row-->             
-    </div><!-- end container -->
-</section>
-<!-- end hero -->
-<div class="position-relative">
-    <div class="shape overflow-hidden text-white">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
-    </div>
-</div>
+    <app-header></app-header>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<div class="position-relative"> 
-    <div class="shape overflow-hidden text-light"> 
-        <svg viewBox="0 0 2880 150" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M110 105L2160 0H2880V150H0V105H110Z" fill="currentColor"></path> </svg>
-    </div>
-</div>
-
-
-<section class="section bg-light cta-pettern">
-    <div class="container">            
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="pattern-1 position-absolute">
-                    <img src="images/p-1.svg" alt="" class="" height="80">
+    <section class="hero-one position-relative bg-black" id="about"
+        style="background-image: url(images/personal/main-bg.png); background-size: cover; background-position: center center;">
+        <div class="container">
+            <div class="row align-items-center justify-content-center py-100">
+                <div class="col-lg-9 text-center py-5 text-center">
+                    <h5 class="head-title py-4" aria-label="Blog Detail"></h5>
                 </div>
-                <h2 class="text-dark" style="line-height: 1.5; position: relative;">I Am Available For Freelancer.</h2>
-                <p class="text-muted mb-0">Browse hundreds of job offers and find the bestsuitable position.</p>
-            </div><!--end col--> 
-            <div class="col-lg-6 ml-auto">
-                <div class="cta-search">
-                    <form class="position-relative">
-                        <input type="email" placeholder="Email Address" required="">
-                        <button type="submit" class="btn btn-dark">Send Massage</button>
-                    </form>
-                </div>
-            </div><!--end col--> 
-        </div><!--end row--> 
-    </div><!--end container--> 
-</section>
+            </div>
+        </div>
+    </section>
 
-
-
-<div class="position-relative">
-    <div class="shape overflow-hidden bg-footer">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
+    <div class="position-relative">
+        <div class="shape overflow-hidden text-white">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
+        </div>
     </div>
-</div>
+
+    <section class="section">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-9">
+                    <div class="card-border-0 shadow-none">
+                        <div class="card-body">
+                            <div class="mb-5 text-center">
+                                <p class="text-muted fw-semibold fs-18">{{blogDetails?.createdAt.slice(0, 10)}}</p>
+                                <h3 class="my-3 fs-28 d-block fw-medium text-dark">{{blogDetails?.title}}</h3>
+                                <!-- <p class="text-muted fw-semibold fs-16">Contrary to popular belief, Lorem Ipsum is not
+                                    simply random text.</p> -->
+                                <!-- <span class="badge px-3 py-2 bg-light text-dark fw-semibold mt-3 fs-13">Minting</span>
+                                <span class="badge px-3 py-2 bg-light text-dark fw-semibold mt-3 fs-13">NFTs</span>
+                                <span class="badge px-3 py-2 bg-light text-dark fw-semibold mt-3 fs-13">Art</span>
+                                <span class="badge px-3 py-2 bg-light text-dark fw-semibold mt-3 fs-13">Music</span> -->
+                            </div>
+                            <img src="{{blogDetails?.image}}" alt=""
+                                class="img-fluid rounded d-flex mx-auto" />
+                            <div class="my-5">
+                                <p class="text-muted fs-16 mb-4">
+                                   {{blogDetails?.description}}
+                                </p>
+                                <!-- <figure>
+                                    <blockquote class="blockquote">
+                                        <p><i>There are many variations of passages of Lorem Ipsum available, but the
+                                                majority have suffered alteration
+                                                in some form. </i></p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        Someone famous in <cite title="Source Title">Source Title</cite>
+                                    </figcaption>
+                                </figure> -->
+                                <!-- <p class="text-muted fs-16">
+                                    It uses a dictionary of over 200 Latin words, combined with a
+                                    handful of model sentence structures, to generate Lorem Ipsum which
+                                    looks reasonable.
+                                </p> -->
+                            </div>
+                            <div class="mb-5">
+                                <h3 class="mt-3 fs-24 d-block fw-medium text-dark">Latest Blog Posts</h3>
+                                <p class="text-muted fw-semibold fs-14">26 march 2022</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div
+                                            class="row row-cols-xl-4 row-cols-lg-4 row-cols-md-2 g-3 justify-content-center">
+                                            <div class="col" *ngFor="let lblog of similarproductList">
+                                                <a [routerLink]="'/blog-details/'+lblog._id" class="d-block bg-card shadow p-2 rounded catagories-box">
+                                                    <img src="{{lblog?.image}}" alt="" class="img-fluid rounded mb-2">
+                                                    <h3 class="fs-15 m-0 fw-medium">{{lblog?.title}}...</h3>
+                                                </a>
+                                            </div>
+                                            <!-- <div class="col">
+                                                <a href="#" class="d-block bg-card shadow p-2 rounded catagories-box">
+                                                    <img src="../../assets/images/personal/3.jpg" alt="" class="img-fluid rounded mb-2">
+                                                    <h3 class="fs-15 m-0 fw-medium">There are many variations...</h3>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="d-block bg-card shadow p-2 rounded catagories-box">
+                                                    <img src="../../assets/images/personal/4.jpg" alt="" class="img-fluid rounded mb-2">
+                                                    <h3 class="fs-15 m-0 fw-medium">Contrary to popular belief...</h3>
+                                                </a>
+                                            </div>
+                                            <div class="col">
+                                                <a href="#" class="d-block bg-card shadow p-2 rounded catagories-box">
+                                                    <img src="../../assets/images/personal/5.jpg" alt="" class="img-fluid rounded mb-2">
+                                                    <h3 class="fs-15 m-0 fw-medium">Finibus Bonorum et Malorum...</h3>
+                                                </a>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="hr-dashed my-3">
+                                <div class="row">
+                                    <div class="col-md">
+                                        <div class="media">
+                                            <img src="../../assets/images/users/user-1.jpg" alt="" class="thumb-sm rounded-circle me-2">
+                                            <div class="media-body align-self-center text-truncate">
+                                                <h6 class="m-0 text-dark fw-medium">Goutam Singh</h6>
+                                                <!-- <p class="mb-0 fs-12 text-muted fw-medium">Cryptocurrency Analyst</p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <button type="button" [routerLink]="'/blog-list'" class="btn btn-sm btn-outline-primary px-4">Blogs</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-  <app-footer></app-footer>
+
+    <div class="position-relative">
+        <div class="shape overflow-hidden text-light">
+            <svg viewBox="0 0 2880 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M110 105L2160 0H2880V150H0V105H110Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+
+
+    <section class="section bg-light cta-pettern">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="pattern-1 position-absolute">
+                        <img src="images/p-1.svg" alt="" class="" height="80">
+                    </div>
+                    <h2 class="text-dark" style="line-height: 1.5; position: relative;">I Am Available For
+                        Freelancer.</h2>
+                    <p class="text-muted mb-0">Browse hundreds of job offers and find the bestsuitable position.</p>
+                </div>
+                <div class="col-lg-6 ml-auto">
+                    <div class="cta-search">
+                        <form class="position-relative">
+                            <input type="email" placeholder="Email Address" required="">
+                            <button type="submit" class="btn btn-dark">Send Massage</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="position-relative">
+        <div class="shape overflow-hidden bg-footer">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <app-footer></app-footer>
 
 </ion-content>

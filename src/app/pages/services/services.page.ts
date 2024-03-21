@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/service/data/data.service';
 
 @Component({
   selector: 'app-services',
@@ -6,10 +7,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./services.page.scss'],
 })
 export class ServicesPage implements OnInit {
+  serviceList: any = [];
 
-  constructor() { }
+  constructor(
+    private dataServ: DataService,
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  async ionViewWillEnter() {
+    this.getServiceListApiCall();
+  }
+
+  async getServiceListApiCall() {
+    await this.dataServ.getMethod(`service/list`).then(
+      async (data) => {
+        const res = JSON.parse(JSON.stringify(data));
+        if (res?.success == true) {
+          this.serviceList = res?.service || [];
+        } else {
+          this.serviceList = [];
+        }
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
 }
